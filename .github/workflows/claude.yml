@@ -48,6 +48,12 @@ jobs:
             --model claude-sonnet-4-20250514
             --max-turns 5
           show_full_output: true
+          settings: |
+            {
+              "env": {
+                "ANTHROPIC_CUSTOM_HEADERS": "anthropic-workspace-id: ${{ secrets.ANTHROPIC_WORKSPACE_ID }}"
+              }
+            }
           # Optional: Customize the trigger phrase (default: @claude)
           # trigger_phrase: "/claude"
 
