@@ -45,7 +45,7 @@ jobs:
           anthropic_workspace_id: ${{ secrets.ANTHROPIC_WORKSPACE_ID }}
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           claude_args: |
-            --model claude-sonnet-4-20250514
+            --model claude-sonnet-5
             --max-turns 5
           show_full_output: true
           settings: |
