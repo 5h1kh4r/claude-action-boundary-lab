@@ -42,15 +42,7 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           github_token: ${{ steps.app-token.outputs.token }}
-          settings: |
-            {
-              "env": {
-                "ANTHROPIC_BASE_URL": "https://api.z.ai/api/anthropic",
-                "ANTHROPIC_AUTH_TOKEN": "${{ secrets.ZAI_API_KEY }}",
-                "ANTHROPIC_API_KEY": "",
-                "ANTHROPIC_DEFAULT_SONNET_MODEL": "glm-5.3"
-              }
-            }
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           # Optional: Customize the trigger phrase (default: @claude)
           # trigger_phrase: "/claude"
 
