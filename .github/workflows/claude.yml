@@ -48,6 +48,7 @@ jobs:
             --model claude-sonnet-5
             --max-turns 5
           show_full_output: true
+          use_commit_signing: true
           settings: |
             {
               "env": {
