@@ -1,0 +1,26 @@
+name: R53 Agent Approval Check
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, ready_for_review]
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+  pull-requests: write
+  statuses: write
+
+jobs:
+  check:
+    if: github.event_name != 'issue_comment' || github.event.issue.pull_request
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: anthropics/claude-code-action/agent-approval-check@fa2b2666b747000bf42767d1f332065b375e3c8f
+        with:
+          github_token: ${{ github.token }}
+          required_approvals: "1"
+          agent_emails: "r53-never-match@example.invalid"
+          agent_logins: "claude-code-custom-appidkidk[bot]"
+          protected_bases: "main"
